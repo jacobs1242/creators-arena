@@ -1,0 +1,69 @@
+{% include'teacher_header.html' %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="height: 700px">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(/static/assets/img/e6.jpg);height: 700px">
+          <div class="carousel-container">
+            <div class="container">
+              
+            
+
+<form method="post">
+		<center>
+		
+		<br><br>
+						<h2>Send Notification</h2>
+			<table class="table" style="width: 600px;color: white">
+							<tr>
+					<th>Notification</th>
+					<td><input type="text" name="not"  required pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="manage" value="SEND" class="btn btn-info"></td>
+				</tr>
+			</table>
+	</div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+			<br>
+			<center>
+			<h2>Notification</h2>
+			<table class="table" style="width: 800px">
+				<tr>
+					<th>Sl.no</th>
+					<th>Notification</th>
+					<th>Date</th>
+				</tr>
+				{% for row in data['not'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['description']}}</td>
+					<td>{{row['date']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+
+	
+{% include'footer.html' %}

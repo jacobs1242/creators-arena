@@ -1,0 +1,81 @@
+{% include'student_header.html' %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="height: 600px">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(/static/assets/img/e6.jpg);height: 600px">
+          <div class="carousel-container">
+            <div class="container">
+            	<h2>My Profile</h2>
+	
+	<center>
+	
+	<form method="post">
+		
+		<br>
+
+		
+			<table class="table" style="width: 500px;color: white;font-family: monospace;font-size: 18px;font-style: italic;">
+				{% for row in data['stud'] %}
+				<tr>
+					<th>First Name :</th>
+					<td>{{row['fname']}}</td>
+				</tr>
+				<tr>
+					<th>Last Name</th>
+					<td>{{row['lname']}}</td>
+				</tr>
+				<tr>
+					<th>Course</th>
+					<td>{{row['course']}}</td>
+				</tr>
+				<tr>
+					<th>Department</th>
+					<td>{{row['department']}}</td>
+				</tr>
+				<tr>
+					<th>Place</th>
+					<td>{{row['place']}}</td>
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td>{{row['phone']}}</td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td>{{row['email']}}</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><a class="btn btn-info" href="student_edit_profile?id={{row['student_id']}}">Edit</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+	</div>
+	</form>
+	
+		
+</center>
+
+</div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+	
+{% include'footer.html' %}

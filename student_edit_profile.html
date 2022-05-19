@@ -1,0 +1,74 @@
+{% include'student_header.html' %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="height: 700px">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(/static/assets/img/e6.jpg);height: 700px">
+          <div class="carousel-container">
+            <div class="container">
+              
+            
+
+<form method="post">
+		<center>
+		
+		<br><br>
+						<h2>Edit Profile</h2>
+			<table class="table" style="width: 600px;color: white">
+				<tr>
+					<th>First Name</th>
+					<td><input type="text" name="fn" value="{{data['dir'][0]['fname']}}" required pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Last Name</th>
+					<td><input type="text" name="ln" value="{{data['dir'][0]['lname']}}" required pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Course</th>
+					<td><input type="text" name="cs" value="{{data['dir'][0]['course']}}" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Department</th>
+					<td><input type="text" name="dept" value="{{data['dir'][0]['department']}}" required  class="form-control"></td>
+				</tr>
+					<tr>
+					<th>Place</th>
+					<td><input type="text" name="pl" value="{{data['dir'][0]['place']}}" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td><input type="text" name="ph" value="{{data['dir'][0]['phone']}}" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="em" value="{{data['dir'][0]['email']}}" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="update" value="UPDATE" class="btn btn-info btn-sm"></td>
+				</tr>
+			</table>
+	</div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+	</form>
+
+	
+{% include'footer.html' %}

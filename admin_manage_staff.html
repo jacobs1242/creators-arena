@@ -1,0 +1,152 @@
+{% include'admin_header.html' %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="height: 1000px">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(/static/assets/img/e6.jpg);height: 1000px">
+          <div class="carousel-container">
+            <div class="container">
+              
+            
+
+<form method="post">
+		<center>
+		{% if data['dir'] %}
+			<br><br><br><br>	
+							<h2>Update Staff</h2>
+			<table class="table" style="width: 600px;color: white">
+				<tr>
+					<th>First Name</th>
+					<td><input type="text" name="fn" value="{{data['dir'][0]['fname']}}" required pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Last Name</th>
+					<td><input type="text" name="ln" value="{{data['dir'][0]['lname']}}" required pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Course</th>
+					<td><input type="text" name="cs" value="{{data['dir'][0]['course']}}" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Department</th>
+					<td><input type="text" name="dept" value="{{data['dir'][0]['department']}}" required  class="form-control"></td>
+				</tr>
+					<tr>
+					<th>Place</th>
+					<td><input type="text" name="pl" value="{{data['dir'][0]['place']}}" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td><input type="text" name="ph" value="{{data['dir'][0]['phone']}}" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="em" value="{{data['dir'][0]['email']}}" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="update" value="UPDATE" class="btn btn-info btn-sm"></td>
+				</tr>
+			</table>
+					
+		{% else %}
+		<br><br>
+						<h2>Manage Staff</h2>
+			<table class="table" style="width: 600px;color: white">
+							<tr>
+					<th>First Name</th>
+					<td><input type="text" name="fn"  required pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Last Name</th>
+					<td><input type="text" name="ln"required pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Course</th>
+					<td><input type="text" name="cs" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Department</th>
+					<td><input type="text" name="dept" required  class="form-control"></td>
+				</tr>
+					<tr>
+					<th>Place</th>
+					<td><input type="text" name="pl" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td><input type="text" name="ph"  required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="em"  required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Username</th>
+					<td><input type="text" name="uname" required  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="password" name="pass"  required  class="form-control"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="manage" value="Manage" class="btn btn-info"></td>
+				</tr>
+			</table>
+						
+		{% endif %}
+	</div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </section><!-- End Hero -->
+			<br>
+			<center>
+			<h2>Staff</h2>
+			<table class="table" style="width: 800px">
+				<tr>
+					<th>Sl.no</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Course</th>
+					<th>Department</th>
+					<th>Place</th>
+					<th>Phone</th>
+					<th>Email</th>
+				</tr>
+				{% for row in data['stud'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['fname']}}</td>
+					<td>{{row['lname']}}</td>
+					<td>{{row['course']}}</td>
+					<td>{{row['department']}}</td>
+					<td>{{row['place']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+					<td><a class="btn btn-info" href="?action=delete&id={{row['login_id']}}">Delete</a></td>
+					<td><a class="btn btn-success" href="?action=update&id={{row['login_id']}}">Update</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+
+	
+{% include'footer.html' %}
